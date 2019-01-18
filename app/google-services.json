@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "700007438",
+    "firebase_url": "https://iot-enters-home-2ab63.firebaseio.com",
+    "project_id": "iot-enters-home-2ab63",
+    "storage_bucket": "iot-enters-home-2ab63.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:700007438:android:12fa89637a5386de",
+        "android_client_info": {
+          "package_name": "com.ppm_xi.iotentershome"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "700007438-hf3v137cf9n4l1jcfb34bvfkdf1rdc2q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ppm_xi.iotentershome",
+            "certificate_hash": "5803c6d87b02c7f16d4541dda9d615caf844bcfc"
+          }
+        },
+        {
+          "client_id": "700007438-k785ivtur095gca7ag6pjvlp8enrn8pb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAT0QWd0E_AifmCkq_FXaA1Nz68h-Awpw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "700007438-0f9duuek3e7ma011lan28ri15f3s74nt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
