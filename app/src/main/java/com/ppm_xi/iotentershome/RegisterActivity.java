@@ -37,7 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         mAuth = FirebaseAuth.getInstance();
-        fDatabase = FirebaseDatabase.getInstance()
+        fDatabase = FirebaseDatabase.getInstance();
         fName = (EditText)findViewById(R.id.regFN);
         lName = (EditText)findViewById(R.id.regLN);
         email = (EditText)findViewById(R.id.regE1);
@@ -73,8 +73,8 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Registration successful",
                                     Toast.LENGTH_SHORT).show();
                             finish();
-                            private DatabaseReference ref = fDatabase.getReference();
-                            private String uid = mAuth.getUid();
+                            DatabaseReference ref = fDatabase.getReference();
+                            String uid = mAuth.getUid();
                             ref.child("Users").child(uid).child("First Name").setValue(firstName);
                             ref.child("Users").child(uid).child("Last Name").setValue(lastName);
                             ref.child("Users").child(uid).child("Email").setValue(userEmail);
@@ -82,25 +82,25 @@ public class RegisterActivity extends AppCompatActivity {
 
                             Intent mainScreen = new Intent(getApplicationContext(),
                                     MainScreenActivity.class);
-                            startActionMode(mainScreen);
+                            startActivity(mainScreen);
                         } else {
                             Toast.makeText(getApplicationContext(), "Registration failed",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
-                })
+                });
     }
 
     public void regAction(){
         regBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                private String aFName = fName.getText().toString().trim();
-                private String aLName = lName.getText().toString().trim();
-                private String aEmail1 = email.getText().toString().trim();
-                private String aEmail2 = confirmEmail.getText().toString().trim();
-                private String aPass1 = passw.getText().toString().trim();
-                private String aPass2 = confirmPassw.getText().toString().trim();
+                String aFName = fName.getText().toString().trim();
+                String aLName = lName.getText().toString().trim();
+                String aEmail1 = email.getText().toString().trim();
+                String aEmail2 = confirmEmail.getText().toString().trim();
+                String aPass1 = passw.getText().toString().trim();
+                String aPass2 = confirmPassw.getText().toString().trim();
 
                 if((TextUtils.isEmpty(aFName)) || (TextUtils.isEmpty(aLName)) ||
                         (TextUtils.isEmpty(aEmail1)) || (TextUtils.isEmpty(aEmail2)) ||
@@ -111,9 +111,11 @@ public class RegisterActivity extends AppCompatActivity {
                 } if (!aEmail1.equals(aEmail2)){
                     Toast.makeText(getApplicationContext(), "The email fields must match",
                             Toast.LENGTH_SHORT).show();
+                    return;
                 } if (!aPass1.equals(aPass2)){
                     Toast.makeText(getApplicationContext(), "The password fields must match",
                             Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 createUser(aFName, aLName, aEmail1, aPass1);
             }

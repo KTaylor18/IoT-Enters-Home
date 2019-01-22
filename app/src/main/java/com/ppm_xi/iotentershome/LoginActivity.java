@@ -59,7 +59,6 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            Log.d("sign in successful");
                             Toast.makeText(getApplicationContext(), "Login successful",
                                     Toast.LENGTH_SHORT).show();
                             finish();
@@ -70,16 +69,16 @@ public class LoginActivity extends AppCompatActivity {
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
-                })
+                });
     }
 
     public void loginAction(){
         logButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                private String aEmail = email.getText().toString().trim();
-                private String aPassword = password.getText().toString().trim();
-                if((TextUtils.isEmpty(aEmail)) || (TextUtils.isEmpty(aPassword)){
+                String aEmail = email.getText().toString().trim();
+                 String aPassword = password.getText().toString().trim();
+                if((TextUtils.isEmpty(aEmail)) || (TextUtils.isEmpty(aPassword))){
                     Toast.makeText(getApplicationContext(), "A required field is empty",
                             Toast.LENGTH_SHORT).show();
                     return;
@@ -93,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
         regButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent switchToReg = new Intent(getApplicationContext(), MainScreenActivity.class);
+                Intent switchToReg = new Intent(getApplicationContext(), RegisterActivity.class);
                 startActivity(switchToReg);
             }
         });
