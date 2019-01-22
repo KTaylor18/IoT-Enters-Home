@@ -77,8 +77,8 @@ public class LoginActivity extends AppCompatActivity {
         logButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String aEmail = email.getText().toString().trim();
-                String aPassword = password.getText().toString().trim();
+                private String aEmail = email.getText().toString().trim();
+                private String aPassword = password.getText().toString().trim();
                 if((TextUtils.isEmpty(aEmail)) || (TextUtils.isEmpty(aPassword)){
                     Toast.makeText(getApplicationContext(), "A required field is empty",
                             Toast.LENGTH_SHORT).show();

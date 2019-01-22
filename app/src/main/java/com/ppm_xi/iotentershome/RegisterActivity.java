@@ -1,18 +1,27 @@
 package com.ppm_xi.iotentershome;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
+    private FirebaseDatabase fDatabase;
     private EditText fName;
     private EditText lName;
     private EditText email;
@@ -28,6 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         mAuth = FirebaseAuth.getInstance();
+        fDatabase = FirebaseDatabase.getInstance()
         fName = (EditText)findViewById(R.id.regFN);
         lName = (EditText)findViewById(R.id.regLN);
         email = (EditText)findViewById(R.id.regE1);
@@ -53,15 +63,59 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
-    public void createUser(String firstName, String lastName, String userEmail, String userPassw){
+    public void createUser(final String firstName, final String lastName, final String userEmail,
+                           String userPassw){
+        mAuth.createUserWithEmailAndPassword(userEmail, userPassw)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(getApplicationContext(), "Registration successful",
+                                    Toast.LENGTH_SHORT).show();
+                            finish();
+                            private DatabaseReference ref = fDatabase.getReference();
+                            private String uid = mAuth.getUid();
+                            ref.child("Users").child(uid).child("First Name").setValue(firstName);
+                            ref.child("Users").child(uid).child("Last Name").setValue(lastName);
+                            ref.child("Users").child(uid).child("Email").setValue(userEmail);
+                            ref.child("Users").child(uid).child("System");
 
+                            Intent mainScreen = new Intent(getApplicationContext(),
+                                    MainScreenActivity.class);
+                            startActionMode(mainScreen);
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Registration failed",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                })
     }
 
     public void regAction(){
         regBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //insert code
+                private String aFName = fName.getText().toString().trim();
+                private String aLName = lName.getText().toString().trim();
+                private String aEmail1 = email.getText().toString().trim();
+                private String aEmail2 = confirmEmail.getText().toString().trim();
+                private String aPass1 = passw.getText().toString().trim();
+                private String aPass2 = confirmPassw.getText().toString().trim();
+
+                if((TextUtils.isEmpty(aFName)) || (TextUtils.isEmpty(aLName)) ||
+                        (TextUtils.isEmpty(aEmail1)) || (TextUtils.isEmpty(aEmail2)) ||
+                        (TextUtils.isEmpty(aPass1)) || (TextUtils.isEmpty(aPass2))){
+                    Toast.makeText(getApplicationContext(), "A required field is empty",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                } if (!aEmail1.equals(aEmail2)){
+                    Toast.makeText(getApplicationContext(), "The email fields must match",
+                            Toast.LENGTH_SHORT).show();
+                } if (!aPass1.equals(aPass2)){
+                    Toast.makeText(getApplicationContext(), "The password fields must match",
+                            Toast.LENGTH_SHORT).show();
+                }
+                createUser(aFName, aLName, aEmail1, aPass1);
             }
         });
     }
