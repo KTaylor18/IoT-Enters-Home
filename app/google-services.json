@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "700007438-06lfblda3goddibe399q6qhus8d7kdrf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ppm_xi.iotentershome",
+            "certificate_hash": "a4f04612cdc5c4275d12e7f429bf7c8876a2dfab"
+          }
+        },
+        {
           "client_id": "700007438-k785ivtur095gca7ag6pjvlp8enrn8pb.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -40,7 +48,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "700007438-0f9duuek3e7ma011lan28ri15f3s74nt.apps.googleusercontent.com",
+              "client_id": "700007438-k785ivtur095gca7ag6pjvlp8enrn8pb.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
