@@ -3,8 +3,13 @@ package com.ppm_xi.iotentershome;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainScreenActivity extends AppCompatActivity {
 
@@ -21,6 +26,35 @@ public class MainScreenActivity extends AppCompatActivity {
 
         lightingActivity();
         heatingActivity();
+    }
+
+    //from report (ref Kyle)
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    //about, log out, preferences, support --> user man, faq
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId()==R.id.preferences){
+            Intent intent = new Intent(getApplicationContext(), PreferencesActivity.class);
+            startActivity(intent);
+        } if(item.getItemId()==R.id.support){
+            Intent intent = new Intent(getApplicationContext(), SupportActivity.class);
+            startActivity(intent);
+        } if(item.getItemId()==R.id.about){
+            Intent intent = new Intent(getApplicationContext(), PreferencesActivity.class);
+            startActivity(intent);
+        } if(item.getItemId()==R.id.logOut){
+            FirebaseAuth.getInstance().signOut();
+            Toast.makeText(getApplicationContext(), "Sign out successful",
+                    Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getApplicationContext(), MainScreenActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void lightingActivity(){

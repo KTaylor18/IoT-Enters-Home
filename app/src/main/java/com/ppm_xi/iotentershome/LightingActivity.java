@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Layout;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -121,6 +123,35 @@ public class LightingActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    //from report (ref Kyle)
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    //about, log out, preferences, support --> user man, faq
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId()==R.id.preferences){
+            Intent intent = new Intent(getApplicationContext(), PreferencesActivity.class);
+            startActivity(intent);
+        } if(item.getItemId()==R.id.support){
+            Intent intent = new Intent(getApplicationContext(), SupportActivity.class);
+            startActivity(intent);
+        } if(item.getItemId()==R.id.about){
+            Intent intent = new Intent(getApplicationContext(), PreferencesActivity.class);
+            startActivity(intent);
+        } if(item.getItemId()==R.id.logOut){
+            FirebaseAuth.getInstance().signOut();
+            Toast.makeText(getApplicationContext(), "Sign out successful",
+                    Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getApplicationContext(), MainScreenActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void addLabel(LinearLayout box, LinearLayout.LayoutParams layoutParams, int textSize, String name, boolean bold) {

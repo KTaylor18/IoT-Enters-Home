@@ -15,4 +15,8 @@
     <string name="enter_email">Enter email</string>
     <string name="heating">Heating</string>
     <string name="lighting">Lighting</string>
+    <string name="preferences">Preferences</string>
+    <string name="support">Support</string>
+    <string name="about">About</string>
+    <string name="logout">Log Out</string>
 </resources>
