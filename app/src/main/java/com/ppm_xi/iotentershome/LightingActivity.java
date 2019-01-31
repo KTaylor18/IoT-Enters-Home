@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Layout;
@@ -26,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.LinkedList;
+import java.util.Objects;
 
 public class LightingActivity extends AppCompatActivity {
 
@@ -36,6 +38,11 @@ public class LightingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lighting);
+
+        //31.01.2019
+        //https://stackoverflow.com/questions/14545139/android-back-button-in-the-title-bar
+        ActionBar aBar = getSupportActionBar();
+        aBar.setDisplayHomeAsUpEnabled(true);
 
         //22.01.2019
         //stackoverflow.com/questions/42998415/how-to-access-one-key-of-json-tree-from-firebase-realtime-database

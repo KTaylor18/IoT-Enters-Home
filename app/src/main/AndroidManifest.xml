@@ -11,11 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PreferencesActivity"></activity>
-        <activity android:name=".SupportActivity" />
-        <activity android:name=".AboutActivity" />
-        <activity android:name=".HeatingActivity" />
-        <activity android:name=".LightingActivity" />
+        <activity
+            android:name=".PreferencesActivity"
+            android:parentActivityName=".MainScreenActivity" />
+        <activity android:name=".SupportActivity"
+            android:parentActivityName=".MainScreenActivity"/>
+        <activity android:name=".AboutActivity"
+            android:parentActivityName=".MainScreenActivity"/>
+        <activity android:name=".HeatingActivity"
+            android:parentActivityName=".MainScreenActivity"/>
+        <activity android:name=".LightingActivity"
+            android:parentActivityName=".MainScreenActivity"/>
         <activity android:name=".MainScreenActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity">

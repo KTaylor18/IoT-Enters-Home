@@ -1,6 +1,7 @@
 package com.ppm_xi.iotentershome;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,6 +11,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Objects;
 
 public class MainScreenActivity extends AppCompatActivity {
 
@@ -26,6 +29,11 @@ public class MainScreenActivity extends AppCompatActivity {
 
         lightingActivity();
         heatingActivity();
+
+        //31.01.2019
+        //https://stackoverflow.com/questions/14545139/android-back-button-in-the-title-bar
+        ActionBar aBar = getSupportActionBar();
+        aBar.setDisplayHomeAsUpEnabled(true);
     }
 
     //from report (ref Kyle)
