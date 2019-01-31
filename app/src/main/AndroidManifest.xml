@@ -11,9 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".PreferencesActivity"
-            android:parentActivityName=".MainScreenActivity" />
         <activity android:name=".SupportActivity"
             android:parentActivityName=".MainScreenActivity"/>
         <activity android:name=".AboutActivity"

@@ -46,14 +46,11 @@ public class MainScreenActivity extends AppCompatActivity {
     //about, log out, preferences, support --> user man, faq
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId()==R.id.preferences){
-            Intent intent = new Intent(getApplicationContext(), PreferencesActivity.class);
-            startActivity(intent);
-        } if(item.getItemId()==R.id.support){
+        if(item.getItemId()==R.id.support){
             Intent intent = new Intent(getApplicationContext(), SupportActivity.class);
             startActivity(intent);
         } if(item.getItemId()==R.id.about){
-            Intent intent = new Intent(getApplicationContext(), PreferencesActivity.class);
+            Intent intent = new Intent(getApplicationContext(), AboutActivity.class);
             startActivity(intent);
         } if(item.getItemId()==R.id.logOut){
             FirebaseAuth.getInstance().signOut();
