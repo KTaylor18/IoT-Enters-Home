@@ -19,4 +19,7 @@
     <string name="support">Support</string>
     <string name="about">About</string>
     <string name="logout">Log Out</string>
+    <string name="faqs">FAQs</string>
+    <string name="user_manual">User Manual</string>
+    <string name="help">Help</string>
 </resources>
