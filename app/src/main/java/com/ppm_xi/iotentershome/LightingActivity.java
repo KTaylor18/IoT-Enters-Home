@@ -84,7 +84,6 @@ public class LightingActivity extends AppCompatActivity {
                                             addLabel(box, layoutParams, 36, rName, true);
                                         }
                                         for (String r : linkedList) {
-                                            Toast.makeText(LightingActivity.this, r, Toast.LENGTH_SHORT).show();
                                             if (r.contains(strings[0])) {
                                                 String oName = strings[1];
                                                 addLabel(box, layoutParams, 30, oName, false);
@@ -152,7 +151,7 @@ public class LightingActivity extends AppCompatActivity {
             FirebaseAuth.getInstance().signOut();
             Toast.makeText(getApplicationContext(), "Sign out successful",
                     Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(getApplicationContext(), MainScreenActivity.class);
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
