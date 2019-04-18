@@ -12,8 +12,6 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.util.Objects;
-
 public class MainScreenActivity extends AppCompatActivity {
 
     private Button lightingBut;

@@ -23,7 +23,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.LinkedList;
-import java.util.Objects;
 
 public class HeatingActivity extends AppCompatActivity {
 

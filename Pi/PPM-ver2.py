@@ -91,8 +91,8 @@ def initFB():
             if option in yesOp:
                 deviceToUpdate = ""
                 devOpt = input("""\nChoose a device:
-A) Heating
-B) Lighting""")
+    A) Heating
+    B) Lighting""")
                 if devOpt.upper() == "A":
                     devices = []
                     num = 0
@@ -103,13 +103,13 @@ B) Lighting""")
                             theDevice = str(num) + ") " + device.replace("-", " - ") + ": "
                         else:
                             theDevice += device
-                    devices.append(theDevice)
+                        devices.append(theDevice)
 
                     for dev in devices:
                         print(dev)
                             
                     roomOpt = input("""\nWhich device would you like to update?
-Press the number that matches the device: """)
+    Press the number that matches the device: """)
 
                     for dev in devices:
                         if roomOpt in dev:
@@ -127,13 +127,13 @@ Press the number that matches the device: """)
                             theDevice = str(num) + ") " + device.replace("-", " - ") + ": "
                         else:
                             theDevice += device
-                    devices.append(theDevice)
+                        devices.append(theDevice)
 
                     for dev in devices:
                         print(dev)
                             
                     roomOpt = input("""\nWhich device would you like to update?
-Press the number that matches the device: """)
+    Press the number that matches the device: """)
 
                     for dev in devices:
                         if roomOpt in dev:
@@ -146,16 +146,16 @@ Press the number that matches the device: """)
                 updateDevice(deviceToUpdate)
                 
             elif option in noOp:
-                sys.exit()
+                pass
             else:
                 print("Invalid option")
             option = input("\nWould you like to update a device?")
 
-    while True:
-        try:
-            mainCode()
-        except:
-            mainCode()
+    try:
+        mainCode()
+    except:
+        time.sleep(2)
+        mainCode()
 
 initFB()
 
